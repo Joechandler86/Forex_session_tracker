@@ -1,0 +1,432 @@
+.session-timeline-container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.timeline-header {
+  padding: 20px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.timeline-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.timeline-wrapper {
+  position: relative;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #1e293b, #334155);
+}
+
+/* Time Markers */
+.time-markers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.time-marker {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+.time-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.time-marker::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Current Time Indicator */
+.current-time-indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+  transition: left 0.3s ease;
+}
+
+.indicator-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ef4444, #f59e0b);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.indicator-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+}
+
+.current-time {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Session Tracks */
+.session-tracks {
+  position: relative;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.session-track {
+  position: absolute;
+  top: 10px;
+  height: 100px;
+  border-radius: 8px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+}
+
+.session-track.active {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.session-track:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.session-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.session-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.session-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.session-times {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.session-pairs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.pair-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.more-pairs {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Pulse Animation */
+.pulse-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Overlaps Section */
+.overlaps-section {
+  padding: 20px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overlaps-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overlaps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overlap-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.overlap-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.overlap-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.overlap-icon {
+  color: #22c55e;
+  font-size: 1.1rem;
+}
+
+.overlap-sessions {
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.overlap-pairs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.no-overlaps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.no-overlaps-icon {
+  font-size: 1.2rem;
+  color: #f59e0b;
+}
+
+/* Session Legend */
+.session-legend {
+  padding: 20px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.session-legend h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legend-name {
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.legend-time {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .timeline-wrapper {
+    padding: 20px 15px;
+  }
+
+  .time-markers {
+    margin-bottom: 15px;
+  }
+
+  .time-label {
+    font-size: 0.6rem;
+  }
+
+  .session-tracks {
+    height: 100px;
+  }
+
+  .session-track {
+    padding: 10px;
+    top: 5px;
+    height: 90px;
+  }
+
+  .session-name {
+    font-size: 1rem;
+  }
+
+  .session-times {
+    font-size: 0.7rem;
+  }
+
+  .pair-tag {
+    font-size: 0.6rem;
+    padding: 1px 4px;
+  }
+
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overlap-item {
+    padding: 12px;
+  }
+
+  .overlap-sessions {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-header {
+    padding: 15px 20px;
+  }
+
+  .timeline-wrapper {
+    padding: 15px 10px;
+  }
+
+  .session-tracks {
+    height: 80px;
+  }
+
+  .session-track {
+    padding: 8px;
+    height: 70px;
+  }
+
+  .session-name {
+    font-size: 0.9rem;
+  }
+
+  .session-status {
+    font-size: 0.6rem;
+    padding: 1px 4px;
+  }
+
+  .session-times {
+    font-size: 0.6rem;
+  }
+
+  .current-time {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .overlaps-section,
+  .session-legend {
+    padding: 15px 20px;
+  }
+}

@@ -1,0 +1,47 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: white;
+  text-align: center;
+}
+
+.loading-screen h2 {
+  margin: 20px 0 10px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.loading-screen p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 15px 0;
+  }
+  
+  .loading-screen h2 {
+    font-size: 1.5rem;
+  }
+  
+  .loading-screen p {
+    font-size: 1rem;
+  }
+}
